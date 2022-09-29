@@ -19,6 +19,12 @@ const Registered = () => {
   const btnedit= 'bg-teal-500 text-white p-3 m-2 flex rounded'
   const btndelete= 'bg-red-600 text-white p-3 m-2 flex rounded'
   const td='border-2 border-solid border-teal-900 p-2 font-bold text-xl bg-slate-100 text-center bg-cyan-50'
+  // const handleEdit = () =>{
+  //   {users.map((user)=>(
+  //     getUserId(user.id)
+  //   ))}
+  //   // getUserId(id)
+  // }
   
   return (
     <div className='bg-slate-100 mx-auto p-5 rounded-md min-h-screen w-full
@@ -32,6 +38,9 @@ const Registered = () => {
             <th>Email</th>
             <th>Profession</th>
             <th>Age</th>
+            <th>D.O.B</th>
+            {/* <th>Gender</th>
+            <th>Actions</th> */}
           </tr>
         </thead>
         <tbody>{users ? users.map(({id, attributes: {name, email, profession, age, doB, gender}})=>(
@@ -40,6 +49,8 @@ const Registered = () => {
           <td className={td}>{email}</td>
           <td className={td}>{profession}</td>
           <td className={td}>{age}</td>
+          {/* <td className={td}>{doB}</td>
+          <td className={td}>{gender}</td> */}
           <td className='border-2 border-solid border-teal-900 p-2 font-bold text-xl bg-cyan-50 text-center flex items-center justify-center'>
             <button type='button' className={btnedit}><Link to='rgster'><BiEdit /></Link></button><button type='button' className={btndelete}><RiDeleteBin6Line /></button>
           </td>

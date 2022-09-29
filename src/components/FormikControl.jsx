@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from './Select'
 import Input from './Input'
-import DatePicker from './DatePicker'
+import DatePickerField from './DatePicker'
 const FormikControl = (props) => {
   const {control, value} = props
   switch (control) {
@@ -10,7 +10,7 @@ const FormikControl = (props) => {
     case 'select':
       return <Select {...props} />
     case 'date':
-      return <DatePicker {...props} />
+      return <DatePickerField {...props} />
     default: return null
   }
 }

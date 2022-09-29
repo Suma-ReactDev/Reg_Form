@@ -6,7 +6,7 @@ import {useUserContext} from './store/user-context'
 const FormikContainer = () => {
   const {addFormData } = useUserContext();
   const dropdownOptions = [
-    {id:1, label:'Select an option', value:''},
+    {id:1, label:'Gender', value:''},
     {id:2, label:'Male', value:'Male'},
     {id:3, label:'Female', value:'Female'}
   ]

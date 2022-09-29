@@ -7,7 +7,7 @@ const Select = (props) => {
     <div className='ml-10 mr-10'>
       <label htmlFor={name} className='block text-gray-500 font-bold mb-1'>{label}</label>
       <Field id={name} name={name} {...rest} as={props.control} 
-      className="border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
+      className=" border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
         {options.map((option)=> 
               <option 
                 key={option.value}
