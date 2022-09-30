@@ -3,19 +3,25 @@ import http from '../http'
 const UserContext = createContext();
 export const useUserContext = () => useContext(UserContext);
 export const ContextProvider = ({children}) => {
-  const [users, setUsers] = useState("");
+  const [users, setUsers] = useState([]);
+  const [singleUSer, setSingleUser] = useState({
+      "name":'',
+      "email":'',
+      "profession":'',
+      "age":'',
+      "gender":'',
+      "date":''
+  })
+  const [singleUSerId, setSingleUserId] = useState(null)
 //   const [userList, setUserList] = useState();  //pending: pass in userList
-  const [userId, setUserId] = useState("");
 //   const createNewUser = async (value) => {
 //     await http.post("/api/registers", value);
 //     console.log(value);
 //   };
-  const updateUser = async (userId, data) => {
-    await http.put(`api/registers${userId}`, data);
-  };
-  const getUserId = (id) => {
-    setUserId(id)
-  }
+  // const updateUser = async (userId, data) => {
+  //   await http.put(`api/registers${userId}`, data);
+  // };
+  
 //   const deleteUser = async (registerId) => {
 //     await http.delete(`/api/registers/${registerId}`);
 //   };
@@ -23,17 +29,26 @@ export const ContextProvider = ({children}) => {
 //     setUserList(value);
 //   };
 //   
+const getFormData = async () => {
+  const response = await http.get('api/registers');
+  // console.log(response.data.data)
+  // const responseArr = Object.values(response.data.data);
+  // console.log(response)
+  const array=response.data.data;
+  // console.log(array);
+  setUsers(array);
+  {array.map((arr)=>{
+    setSingleUser(arr)
+  })}
+};
   useEffect(()=>{
-    const getFormData = async () => {
-        const response = await http.get('api/registers');
-        // console.log(response.data.data)
-        // const responseArr = Object.values(response.data.data);
-        // console.log(response)
-        // console.log(responseArr)
-        setUsers(response.data.data);
-    };
-    return getFormData;
+     getFormData()
 }, []);
+
+  // Select the particular  user with id
+    const selectUser = () => {
+
+    }
 const addFormData = async(values) =>{
   console.log(values)
   const data = JSON.stringify({
@@ -42,7 +57,8 @@ const addFormData = async(values) =>{
       "email":values.email,
       "profession":values.profession,
       "age":values.age,
-      "gender":values.gender
+      "gender":values.gender,
+      "date":new Date(values.doB)
     }
   })
     const response = await fetch('http://localhost:1337/api/registers',
@@ -59,13 +75,45 @@ const addFormData = async(values) =>{
   // const resData = await response.json();	
   // console.log(resData);
   }
+  async function updateUser  (id) {
+    const response = await fetch (`http://localhost:1337/api/registers/${id}`,
+    {
+      method:'PUT',
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }
+      )
+      const result = await response.json();
+      console.log(result)
+      getFormData()
+      if(!response){
+        console.log(response)
+      }
+  }
+  async function deleteUser  (id) {
+    const response = await fetch (`http://localhost:1337/api/registers/${id}`,
+    {
+      method:'DELETE',
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }
+      )
+      const result = await response.json();
+      console.log(result)
+      getFormData()
+      if(!response){
+        console.log(response)
+      }
+  }
   const value = {
     addFormData,
     setUsers,
     users,
     updateUser,
-    userId,
-    getUserId
+    deleteUser
+    
   };
   return(
     <UserContext.Provider value={value} >

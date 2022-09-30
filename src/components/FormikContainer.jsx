@@ -3,6 +3,7 @@ import FormikControl from './FormikControl'
 import {Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import {useUserContext} from './store/user-context'
+import {Link} from 'react-router-dom'
 const FormikContainer = () => {
   const {addFormData } = useUserContext();
   const dropdownOptions = [
@@ -18,7 +19,7 @@ const FormikContainer = () => {
         email:Yup.string().required('Email is required'),
         profession:Yup.string().required('Profession is required'),
         age:Yup.number().required('Age is required'),
-        // doB:Yup.date().required('Date of Birth is required'),
+        doB:Yup.date().required('Date of Birth is required'),
         gender:Yup.string().required('Please select gender'),
       })}
       onSubmit={(values, {resetForm})=>{
@@ -39,7 +40,10 @@ const FormikContainer = () => {
             <FormikControl control='input' type='text' label='Profession' name='profession'/>
             <FormikControl control='input' type='number' label='Age' name='age'/>
             <FormikControl control='select' label='Gender' name='gender' options={dropdownOptions}/>
+            <FormikControl control='date'  label='Date of Birth' name='doB'/>
             <button type='submit' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'>SUBMIT</button>
+            <button type='button' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold' 
+            ><Link to='/'>Click here to see the List of Users</Link></button>
           </Form>
         )}
     </Formik>

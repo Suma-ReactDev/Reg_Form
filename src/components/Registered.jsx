@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import EditUser from './EditUser';
 const Registered = () => {
-  const {users, getUserId} = useUserContext();
+  const {users, deleteUser, updateUser} = useUserContext();
 
   // let user= users && users.map(({id, attributes: {name, email, profession, age}})=>(
   //   <div key={id}>
@@ -39,20 +39,21 @@ const Registered = () => {
             <th>Profession</th>
             <th>Age</th>
             <th>D.O.B</th>
-            {/* <th>Gender</th>
-            <th>Actions</th> */}
+            <th>Gender</th>
+            <th>Actions</th>
           </tr>
         </thead>
-        <tbody>{users ? users.map(({id, attributes: {name, email, profession, age, doB, gender}})=>(
+        <tbody>{users ? users.map(({id, attributes: {name, email, profession, age, gender, date}})=>(
           <tr key={id}>
           <td className={td}>{name}</td>
           <td className={td}>{email}</td>
           <td className={td}>{profession}</td>
           <td className={td}>{age}</td>
-          {/* <td className={td}>{doB}</td>
-          <td className={td}>{gender}</td> */}
+          <td className={td}>{date}</td>
+          <td className={td}>{gender}</td>
           <td className='border-2 border-solid border-teal-900 p-2 font-bold text-xl bg-cyan-50 text-center flex items-center justify-center'>
-            <button type='button' className={btnedit}><Link to='rgster'><BiEdit /></Link></button><button type='button' className={btndelete}><RiDeleteBin6Line /></button>
+            <button type='button' className={btnedit} onClick={()=>{updateUser(id)}}><Link to='rgster'><BiEdit /></Link></button>
+            <button type='button' className={btndelete} onClick={()=>{deleteUser(id)}}><RiDeleteBin6Line /></button>
           </td>
           </tr>)):null}
           </tbody>

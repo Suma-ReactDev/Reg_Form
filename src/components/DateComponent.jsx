@@ -9,7 +9,7 @@ const DateComponent = () => {
     <Formik 
     initialValues={{doB:''}}
     validationSchema={Yup.object({
-      doB:Yup.date().required('Date of Birth is required').nullable
+      doB:Yup.date().required('Date of Birth is required').nullable()
     })}
     onSubmit={(values, {resetForm})=>{
       alert(JSON.stringify(values, null, 2))
