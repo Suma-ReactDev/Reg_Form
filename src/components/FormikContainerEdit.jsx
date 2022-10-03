@@ -14,7 +14,7 @@ const FormikContainer = () => {
  const initialValues = {name:'', email:'', profession:'', age:'', gender:''} 
   return (
     <Formik
-      initialValues= {singleUser || initialValues}
+      initialValues= {singleUser}
       enableReinitialize= {true}
       validationSchema={Yup.object({
         name:Yup.string().required('Full Name is required'),
@@ -27,13 +27,14 @@ const FormikContainer = () => {
       onSubmit={(values, {resetForm})=>{
         alert(JSON.stringify(values, null, 2))
         // createNewUser(values)
+        console.log(values)
         if(values){
-          addFormData(values)
+          updateUser(values)
           resetForm({values:''})
           console.log(values)
-        }
-         
-      }}>
+        }  
+      }}
+      >
         {formik => {
           console.log(formik)
          return(
@@ -47,11 +48,12 @@ const FormikContainer = () => {
             <FormikControl control='input' type='number' label='Age' name='age' placeholder='Age'/>
             <FormikControl control='select' label='Gender' name='gender' options={dropdownOptions} placeholder='Gender'/>
             <FormikControl control='date'  label='Date of Birth' name='doB' />
-            {!singleUser && <button type='submit' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'>SUBMIT</button>}
             {singleUser && 
             <button type='submit' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold' 
-            onClick={()=>{updateUser()}}>UPDATE</button>}
-            {singleUser && <button type='button' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'>CANCEL</button>}
+           >UPDATE</button>}
+            {singleUser && <button type='button' 
+            className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'
+            onClick={()=>{}}>CANCEL</button>}
             <button type='button' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold' 
             ><Link to='/'>Click here to see the List of Users</Link></button>
           </Form>

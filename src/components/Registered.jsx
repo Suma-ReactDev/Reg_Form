@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import EditUser from './EditUser';
 const Registered = () => {
-  const {users, deleteUser, updateUser} = useUserContext();
+  const {users, deleteUser, selectUser} = useUserContext();
 
   // let user= users && users.map(({id, attributes: {name, email, profession, age}})=>(
   //   <div key={id}>
@@ -45,6 +45,7 @@ const Registered = () => {
         </thead>
         <tbody>{users ? users.map(({id, attributes: {name, email, profession, age, gender, date}})=>(
           <tr key={id}>
+          <td className={td}>{id}</td>
           <td className={td}>{name}</td>
           <td className={td}>{email}</td>
           <td className={td}>{profession}</td>
@@ -52,7 +53,7 @@ const Registered = () => {
           <td className={td}>{date}</td>
           <td className={td}>{gender}</td>
           <td className='border-2 border-solid border-teal-900 p-2 font-bold text-xl bg-cyan-50 text-center flex items-center justify-center'>
-            <button type='button' className={btnedit} onClick={()=>{updateUser(id)}}><Link to='rgster'><BiEdit /></Link></button>
+            <button type='button' className={btnedit} onClick={()=>{selectUser(id)}}><Link to='rgster-edit'><BiEdit /></Link></button>
             <button type='button' className={btndelete} onClick={()=>{deleteUser(id)}}><RiDeleteBin6Line /></button>
           </td>
           </tr>)):null}
