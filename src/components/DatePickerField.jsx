@@ -3,16 +3,21 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import addDays from 'date-fns/addDays' 
+<<<<<<< HEAD
 import Moment from 'moment'
+=======
+>>>>>>> ece036bf016d3c5bf24b1e99642cc99a33b050f1
 const DatePickerField = (props) => {
   const {label, name, ...rest} = props
+  const nodeRef= React.useRef(null)
+
   return (
     <div className='ml-10 mr-10'>
       <label htmlFor={name} className='block text-gray-500 font-bold mb-1'>{label}</label>
-      <Field name={name} >
+      <Field name={name}  >
         {({ field, meta, form: { setFieldValue } }) => {
         return (
-          <DatePicker
+          <DatePicker 
           className=" appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             {...field}
             selected={field.value || null}
@@ -24,7 +29,11 @@ const DatePickerField = (props) => {
             dateFormat="dd/MM/yyyy"
             // minDate={new Date("01/01/1980")}
             maxDate={new Date()}
+<<<<<<< HEAD
             yearDropdownItemNumber={40}
+=======
+            yearDropdownItemNumber={100}
+>>>>>>> ece036bf016d3c5bf24b1e99642cc99a33b050f1
             scrollableYearDropdown={true}
             showYearDropdown
             showMonthDropdown
