@@ -1,9 +1,8 @@
 import React from 'react'
-import Select from './Select'
-import Input from './Input'
-import DatePickerField from './DatePickerField'
+import { Select, Input, DatePickerField } from './fileImports'
+
 const FormikControl = (props) => {
-  const {control, value} = props
+  const {control} = props
   switch (control) {
     case 'input':
       return <Input {...props}/>

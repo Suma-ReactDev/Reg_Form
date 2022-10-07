@@ -3,7 +3,7 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import addDays from 'date-fns/addDays' 
- 
+import Moment from 'moment'
 const DatePickerField = (props) => {
   const {label, name, ...rest} = props
   return (
@@ -19,14 +19,15 @@ const DatePickerField = (props) => {
             onChange={(val) => {
               setFieldValue(field.name, val);
             }}
+            placeholderText={'Date of Birth'}
             autoComplete='off'
             dateFormat="dd/MM/yyyy"
             // minDate={new Date("01/01/1980")}
             maxDate={new Date()}
-            // yearDropdownItemNumber={100}
-            // scrollableYearDropdown={true}
-            // showYearDropdown
-            // showMonthDropdown
+            yearDropdownItemNumber={40}
+            scrollableYearDropdown={true}
+            showYearDropdown
+            showMonthDropdown
             // timeFormat="HH:mm"  
             // timeIntervals={20}  
             // timeCaption="time"  

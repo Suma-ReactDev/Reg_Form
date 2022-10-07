@@ -1,12 +1,13 @@
-import React from 'react'
-import {useUserContext} from './store/user-context'
+import React, { useState } from 'react'
+import {useUserContext} from './store/usercontext'
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import EditUser from './EditUser';
-const Registered = () => {
-  const {users, deleteUser, updateUser} = useUserContext();
+import Moment from 'moment'
 
+const Registered = () => {
+  const {users, deleteUser, selectUser} = useUserContext();
+  
   // let user= users && users.map(({id, attributes: {name, email, profession, age}})=>(
   //   <div key={id}>
   //       <li className='font-bold'>{name}</li>
@@ -19,13 +20,7 @@ const Registered = () => {
   const btnedit= 'bg-teal-500 text-white p-3 m-2 flex rounded'
   const btndelete= 'bg-red-600 text-white p-3 m-2 flex rounded'
   const td='border-2 border-solid border-teal-900 p-2 font-bold text-xl bg-slate-100 text-center bg-cyan-50'
-  // const handleEdit = () =>{
-  //   {users.map((user)=>(
-  //     getUserId(user.id)
-  //   ))}
-  //   // getUserId(id)
-  // }
-  
+
   return (
     <div className='bg-slate-100 mx-auto p-5 rounded-md min-h-screen w-full
     flex flex-col gap-5 '>
@@ -49,10 +44,10 @@ const Registered = () => {
           <td className={td}>{email}</td>
           <td className={td}>{profession}</td>
           <td className={td}>{age}</td>
-          <td className={td}>{date}</td>
+          <td className={td}>{Moment(date).format('DD-MM-YYYY')}</td>
           <td className={td}>{gender}</td>
           <td className='border-2 border-solid border-teal-900 p-2 font-bold text-xl bg-cyan-50 text-center flex items-center justify-center'>
-            <button type='button' className={btnedit} onClick={()=>{updateUser(id)}}><Link to='rgster'><BiEdit /></Link></button>
+            <button type='button' className={btnedit} onClick={()=>{selectUser(id)}}><Link to='rgster-edit'><BiEdit /></Link></button>
             <button type='button' className={btndelete} onClick={()=>{deleteUser(id)}}><RiDeleteBin6Line /></button>
           </td>
           </tr>)):null}

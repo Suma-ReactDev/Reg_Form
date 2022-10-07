@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import {useUserContext} from './store/user-context'
+import {useUserContext} from './store/usercontext'
 const RegForm = () => {
   const {addFormData} = useUserContext();
   return (
