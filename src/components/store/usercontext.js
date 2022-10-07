@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import http from "../http";
 import Moment from 'moment'
-const UserContext = createContext();
+const UserContext = createContext("");
 export const useUserContext = () => useContext(UserContext);
 export const ContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);

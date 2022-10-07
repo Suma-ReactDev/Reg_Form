@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import {useUserContext} from './store/usercontext'
 import {Link} from 'react-router-dom'
 const FormikContainer = () => {
-  const {addFormData, singleUser, updateUser, singleUserId } = useUserContext();
+  const {addFormData, singleUser, updateUser } = useUserContext();
   const dropdownOptions = [
     {id:1, label:'Gender', value:''},
     {id:2, label:'Male', value:'Male'},
@@ -53,14 +53,6 @@ const FormikContainer = () => {
             <FormikControl control='date'  label='Date of Birth' name='doB'/>
             <button type='submit' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'>
               SUBMIT</button>
-            <FormikControl control='input' type='number' label='Age' name='age' placeholder='Age'/>
-            <FormikControl control='select' label='Gender' name='gender' options={dropdownOptions} placeholder='Gender'/>
-            <FormikControl control='date'  label='Date of Birth' name='doB' />
-            {!singleUser && <button type='submit' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'>SUBMIT</button>}
-            {singleUser && 
-            <button type='submit' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold' 
-            onClick={()=>{updateUser()}}>UPDATE</button>}
-            {singleUser && <button type='button' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'>CANCEL</button>}
             <button type='button' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold' 
             ><Link to='/'>Click here to see the List of Users</Link></button>
           </Form>
