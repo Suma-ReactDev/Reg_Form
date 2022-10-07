@@ -3,14 +3,7 @@ import {useUserContext} from './store/usercontext'
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import Moment from 'moment'
-=======
-import EditUser from './EditUser';
-const Registered = () => {
-  const {users, deleteUser, selectUser} = useUserContext();
->>>>>>> ece036bf016d3c5bf24b1e99642cc99a33b050f1
-
 const Registered = () => {
   const {users, deleteUser, selectUser} = useUserContext();
   

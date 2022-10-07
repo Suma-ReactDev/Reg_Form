@@ -48,13 +48,11 @@ const FormikContainer = () => {
             <FormikControl control='input' type='text' label='Name' name='name' placeholder='Full Name'/>
             <FormikControl control='input' type='email' label='Email' name='email' placeholder='Email'/>
             <FormikControl control='input' type='text' label='Profession' name='profession' placeholder='Profession'/>
-<<<<<<< HEAD
             <FormikControl control='input' type='number' label='Age' name='age'placeholder='Age' step={1} min={20}/>
             <FormikControl control='select' label='Gender' name='gender' options={dropdownOptions}/>
             <FormikControl control='date'  label='Date of Birth' name='doB'/>
             <button type='submit' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'>
               SUBMIT</button>
-=======
             <FormikControl control='input' type='number' label='Age' name='age' placeholder='Age'/>
             <FormikControl control='select' label='Gender' name='gender' options={dropdownOptions} placeholder='Gender'/>
             <FormikControl control='date'  label='Date of Birth' name='doB' />
@@ -63,7 +61,6 @@ const FormikContainer = () => {
             <button type='submit' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold' 
             onClick={()=>{updateUser()}}>UPDATE</button>}
             {singleUser && <button type='button' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold'>CANCEL</button>}
->>>>>>> ece036bf016d3c5bf24b1e99642cc99a33b050f1
             <button type='button' className='text-xl bg-slate-300 p-2 m-5 text-zinc-600 font-extrabold' 
             ><Link to='/'>Click here to see the List of Users</Link></button>
           </Form>
