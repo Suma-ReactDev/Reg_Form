@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Suma-ReactDev.github.io/Reg_Form/static/css/main.e67e2a00.css",
+    "main.js": "/Suma-ReactDev.github.io/Reg_Form/static/js/main.dc4051bd.js",
+    "index.html": "/Suma-ReactDev.github.io/Reg_Form/index.html",
+    "main.e67e2a00.css.map": "/Suma-ReactDev.github.io/Reg_Form/static/css/main.e67e2a00.css.map",
+    "main.dc4051bd.js.map": "/Suma-ReactDev.github.io/Reg_Form/static/js/main.dc4051bd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e67e2a00.css",
+    "static/js/main.dc4051bd.js"
+  ]
+}
