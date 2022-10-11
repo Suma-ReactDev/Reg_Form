@@ -1,7 +1,7 @@
 {
   "name": "main-form",
   "version": "0.1.0",
-  "home":"https://github.com/Suma-ReactDev.github.io/Reg_Form",
+  "homepage":"https://github.com/Suma-ReactDev.github.io/Reg_Form",
   "private": true,
   "dependencies": {
     "axios": "^0.27.2",
